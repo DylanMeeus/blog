@@ -2,3 +2,11 @@ languageCode = "en-us"
 title = "Dylan's blog"
 baseurl = "http://it-ca.net/blogdylan"
 theme = "m10c"
+
+[params]
+    author = "Dylan Meeus"
+    description = "Go Software Engineer @UZleuven"
+
+[[params.social]]
+    name = "github"
+    url = "https://github.com/DylanMeeus"

@@ -1,0 +1,216 @@
+.
+├── archetypes
+├── config.toml
+├── content
+│   └── posts
+│       └── my-post.md
+├── data
+├── layouts
+├── public
+│   ├── avatar.jpg
+│   ├── avatar.png
+│   ├── categories
+│   │   ├── index.html
+│   │   ├── index.xml
+│   │   └── page
+│   │       └── 1
+│   │           └── index.html
+│   ├── css
+│   │   └── main.min.ed2bee65dbc2f611ff1a2ca5cfa6d7ec362a8e79fea5cf61bb5213445359e232.css
+│   ├── index.html
+│   ├── index.xml
+│   ├── page
+│   │   └── 1
+│   │       └── index.html
+│   ├── posts
+│   │   ├── index.html
+│   │   ├── index.xml
+│   │   ├── page
+│   │   │   └── 1
+│   │   │       └── index.html
+│   │   └── test
+│   │       └── index.html
+│   ├── sitemap.xml
+│   ├── tags
+│   │   ├── index.html
+│   │   ├── index.xml
+│   │   └── page
+│   │       └── 1
+│   │           └── index.html
+│   └── test
+│       └── index.html
+├── resources
+│   └── _gen
+│       ├── assets
+│       │   └── scss
+│       │       └── css
+│       │           ├── main.scss_e86386c8bae1cd02295de71a1be078d6.content
+│       │           └── main.scss_e86386c8bae1cd02295de71a1be078d6.json
+│       └── images
+├── static
+├── test.txt
+└── themes
+    ├── ananke
+    │   ├── archetypes
+    │   │   └── default.md
+    │   ├── CHANGELOG.md
+    │   ├── data
+    │   │   └── webpack_assets.json
+    │   ├── exampleSite
+    │   │   ├── config.toml
+    │   │   ├── content
+    │   │   │   ├── about
+    │   │   │   │   └── _index.md
+    │   │   │   ├── contact.md
+    │   │   │   ├── _index.md
+    │   │   │   └── post
+    │   │   │       ├── chapter-1.md
+    │   │   │       ├── chapter-2.md
+    │   │   │       ├── chapter-3.md
+    │   │   │       ├── chapter-4.md
+    │   │   │       ├── chapter-5.md
+    │   │   │       ├── chapter-6.md
+    │   │   │       └── _index.md
+    │   │   └── static
+    │   │       └── images
+    │   │           ├── esmeralda.jpg
+    │   │           ├── notebook.jpg
+    │   │           ├── Pope-Edouard-de-Beaumont-1844.jpg
+    │   │           └── Victor_Hugo-Hunchback.jpg
+    │   ├── i18n
+    │   │   ├── de.toml
+    │   │   ├── en.toml
+    │   │   └── fr.toml
+    │   ├── images
+    │   │   ├── screenshot.png
+    │   │   └── tn.png
+    │   ├── layouts
+    │   │   ├── 404.html
+    │   │   ├── _default
+    │   │   │   ├── baseof.html
+    │   │   │   ├── list.html
+    │   │   │   ├── single.html
+    │   │   │   ├── taxonomy.html
+    │   │   │   └── terms.html
+    │   │   ├── index.html
+    │   │   ├── page
+    │   │   │   └── single.html
+    │   │   ├── partials
+    │   │   │   ├── i18nlist.html
+    │   │   │   ├── menu-contextual.html
+    │   │   │   ├── new-window-icon.html
+    │   │   │   ├── page-header.html
+    │   │   │   ├── site-favicon.html
+    │   │   │   ├── site-footer.html
+    │   │   │   ├── site-header.html
+    │   │   │   ├── site-navigation.html
+    │   │   │   ├── site-scripts.html
+    │   │   │   ├── social-follow.html
+    │   │   │   ├── summary.html
+    │   │   │   ├── summary-with-image.html
+    │   │   │   ├── svg
+    │   │   │   │   ├── facebook.svg
+    │   │   │   │   ├── github.svg
+    │   │   │   │   ├── gitlab.svg
+    │   │   │   │   ├── instagram.svg
+    │   │   │   │   ├── linkedin.svg
+    │   │   │   │   ├── mastodon.svg
+    │   │   │   │   ├── medium.svg
+    │   │   │   │   ├── new-window.svg
+    │   │   │   │   ├── twitter.svg
+    │   │   │   │   └── youtube.svg
+    │   │   │   └── tags.html
+    │   │   ├── post
+    │   │   │   ├── list.html
+    │   │   │   ├── summary.html
+    │   │   │   └── summary-with-image.html
+    │   │   ├── robots.txt
+    │   │   └── shortcodes
+    │   │       └── form-contact.html
+    │   ├── LICENSE.md
+    │   ├── package.json
+    │   ├── README.md
+    │   ├── src
+    │   │   ├── css
+    │   │   │   ├── _code.css
+    │   │   │   ├── _hugo-internal-templates.css
+    │   │   │   ├── main.css
+    │   │   │   ├── postcss.config.js
+    │   │   │   ├── _social-icons.css
+    │   │   │   ├── _styles.css
+    │   │   │   └── _tachyons.css
+    │   │   ├── js
+    │   │   │   └── main.js
+    │   │   ├── package.json
+    │   │   ├── package-lock.json
+    │   │   ├── readme.md
+    │   │   └── webpack.config.js
+    │   ├── static
+    │   │   ├── dist
+    │   │   │   ├── css
+    │   │   │   │   └── app.955516233bcafa4d2a1c13cea63c7b50.css
+    │   │   │   └── js
+    │   │   │       └── app.3fc0f988d21662902933.js
+    │   │   └── images
+    │   │       └── gohugo-default-sample-hero-image.jpg
+    │   └── theme.toml
+    └── m10c
+        ├── assets
+        │   └── css
+        │       ├── _base.scss
+        │       ├── components
+        │       │   ├── _app.scss
+        │       │   ├── _icon.scss
+        │       │   ├── _pagination.scss
+        │       │   ├── _post.scss
+        │       │   ├── _posts_list.scss
+        │       │   └── _tag.scss
+        │       └── main.scss
+        ├── data
+        │   └── m10c
+        │       └── icons.json
+        ├── exampleSite
+        │   ├── config.toml
+        │   └── content
+        │       └── posts
+        │           ├── creating-a-new-theme.md
+        │           ├── goisforlovers.md
+        │           ├── hugoisforlovers.md
+        │           ├── migrate-from-jekyll.md
+        │           ├── test-1.md
+        │           ├── test-2.md
+        │           ├── test-3.md
+        │           ├── test-4.md
+        │           ├── test-5.md
+        │           ├── test-6.md
+        │           ├── test-7.md
+        │           ├── test-8.md
+        │           └── test-9.md
+        ├── images
+        │   ├── cover.png
+        │   ├── screenshot.png
+        │   └── tn.png
+        ├── layouts
+        │   ├── _default
+        │   │   ├── baseof.html
+        │   │   ├── list.html
+        │   │   └── single.html
+        │   └── partials
+        │       ├── icon.html
+        │       └── pagination.html
+        ├── LICENSE.md
+        ├── README.md
+        ├── resources
+        │   └── _gen
+        │       └── assets
+        │           └── scss
+        │               └── css
+        │                   ├── main.scss_e86386c8bae1cd02295de71a1be078d6.content
+        │                   └── main.scss_e86386c8bae1cd02295de71a1be078d6.json
+        ├── scripts
+        │   └── update_feather_icons.sh
+        ├── static
+        │   └── avatar.jpg
+        └── theme.toml
+
+74 directories, 139 files
