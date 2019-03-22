@@ -1,4 +1,4 @@
 languageCode = "en-us"
-title = "My New Hugo Site"
-baseurl = "http://example.org/"
+title = "Dylan's blog"
+baseurl = "http://it-ca.net/blogdylan"
 theme = "m10c"
