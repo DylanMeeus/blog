@@ -1,7 +1,7 @@
 ---
 title: "Version 2.0 of my blog :)"
 date: 2019-03-22T23:33:01+01:00
-draft: true
+draft: false 
 ---
 
 # The past

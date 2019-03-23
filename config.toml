@@ -1,6 +1,6 @@
 languageCode = "en-us"
 title = "Dylan Meeus"
-baseurl = "http://it-ca.net/blogdylan"
+baseurl = "https://dylanmeeus.github.io"
 theme = "m10c"
 
 [params]
