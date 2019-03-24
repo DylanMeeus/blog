@@ -35,8 +35,11 @@ Some technical info about the old blog that I wanted to get rid off for a long t
 # The present
 
 I've always enjoyed writing technical content, and whilst studying I had plenty of time to do so.
-Some of that time is lost by having a full-time job, being married and studying Spanish.
+The past few years, adjusting to a new routine has made writing blogs low on the priority list.
+Currently I have a full-time job, in addition to being happily married :).
 
 One thing that has at least gotten more interesting is the technology behind this blog! It's created
 with Hugo, a Go Static Website generator. And I've put it up on Github, which helps with the version
 control issues!
+
+My goal is to have at least a few posts out this year. :D
