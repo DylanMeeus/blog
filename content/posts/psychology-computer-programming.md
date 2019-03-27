@@ -1,7 +1,7 @@
 +++
 date = "2019-03-27T21:32:53+01:00"
 title = "Psychology of Computer Programming"
-draft = true
+draft = false 
 +++
 
 Recent I have read <a target="_blank"
