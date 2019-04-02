@@ -17,13 +17,9 @@ mostly due to a lack of time. One of my hopes for this year is to produce at lea
 content again. 
 
 This blog also serves as a fresh start. 
-It might be something that happens to all of us who've been blogging for close to a decade, but reading upon old posts can be quite embarrasing. 
+It might be something that happens to all of us who've been blogging for close to a decade, but reading upon old posts can be quite embarrasing!  
 There is some valuable content on there, so for the time being it'll still be available on the usual
 place. It gets around ~150 views a month which is not terrible for an inactive blog. :) 
-
-I fear this blog might never become as 'popular' as the old one was at it's height. Which was still
-only a modest ~2000 views a month. I feel like the age of blogging might be largely a thing of the
-past, so maybe I'll just be a shouting in an empty room here. :)
 
 Some technical info about the old blog that I wanted to get rid off for a long time:
 
@@ -36,7 +32,8 @@ Some technical info about the old blog that I wanted to get rid off for a long t
 
 I've always enjoyed writing technical content, and whilst studying I had plenty of time to do so.
 The past few years, adjusting to a new routine has made writing blogs low on the priority list.
-Currently I have a full-time job, in addition to being happily married :).
+Currently I have a full-time job, in addition to being happily married. But I'll try to keep this
+one more or less active. :).
 
 One thing that has at least gotten more interesting is the technology behind this blog! It's created
 with Hugo, a Go Static Website generator. And I've put it up on Github, which helps with the version

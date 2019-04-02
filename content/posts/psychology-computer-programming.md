@@ -2,9 +2,10 @@
 date = "2019-03-27T21:32:53+01:00"
 title = "Psychology of Computer Programming"
 draft = false 
+font = "times new roman"
 +++
 
-Recent I have read <a target="_blank"
+Recently I have read <a target="_blank"
 href="https://www.amazon.com/gp/product/0932633420/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0932633420&linkCode=as2&tag=insanity0107-20&linkId=99fc9a8adf509a6d5ef1e70a4548e050">The
 Psychology of Computer Programming</a><img
 src="//ir-na.amazon-adsystem.com/e/ir?t=insanity0107-20&l=am2&o=1&a=0932633420" width="1" height="1"
