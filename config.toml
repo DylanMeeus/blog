@@ -10,3 +10,6 @@ theme = "m10c"
 [[params.social]]
     name = "github"
     url = "https://github.com/DylanMeeus"
+[[params.social]]
+    name = "twitter"
+    url = "https://twitter.com/DylanMeeus"
