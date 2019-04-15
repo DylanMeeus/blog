@@ -56,7 +56,7 @@ While looking at this code, something jumped out at me. Why should we keep creat
 new empty struct if we can just re-use the same struct? We don't care about the `value` of our map, only
 about the content. 
 
-So we could define our empty struct outside, which results in the following code:
+So we could define our empty struct outside the loop, which results in the following code:
 
 ```
 var (
