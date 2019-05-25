@@ -1,20 +1,16 @@
 languageCode = "en-us"
 title = "Dylan Meeus"
 baseurl = "https://dylanmeeus.github.io"
-theme = "m10c"
+theme = "hyde-hyde"
+enableemoji = true
+pygmentsCodeFences = true
+pygmentsstyle = "monokai"
 
-[params]
-    author = "Dylan Meeus"
-    description = "Hi! I'm a software engineer currently working with Go in the healthcare sector."
+[[menu.menu]]
+    name = "Dylan Meeus"
 
-[[params.social]]
-    name = "github"
-    url = "https://github.com/DylanMeeus"
-
-[[params.social]]
-    name = "twitter"
-    url = "https://twitter.com/DylanMeeus"
-
-[[params.social]]
-    name = "linkedin"
-    url = "https://www.linkedin.com/in/dylanmeeus"
+[params.social]
+    github = "https://github.com/DylanMeeus"
+    twitter = "https://twitter.com/DylanMeeus"
+    linkedin = "https://www.linkedin.com/in/dylanmeeus"
+    gravatar = "meeusdylan@protonmail.com"
