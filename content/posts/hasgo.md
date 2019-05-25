@@ -45,6 +45,11 @@ can do, check it out on [github](https://www.github.com/DylanMeeus/hasgo).
 
 ## How does it work?
 
+Before I start explaining this, let me start off by saying that this approach is not something I
+thought of on my own. [Pie](https://www.github.com/elliotchance/pie) played a huge role in how I
+eventually designed Hasgo. There are similarities in how Hasgo and Pie work, although they are not
+identical.
+
 Hasgo is actually a combination of two code generators. We write our functions in Go code, but these would get compiled and thus unusable.
 We need the source code of those Go files to be able to generate the functions for our types. A typical source code file would look like this:
 
