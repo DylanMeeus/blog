@@ -10,7 +10,7 @@ pygmentsstyle = "monokai"
     name = "Dylan Meeus"
 
 [params.social]
-    github = "https://github.com/DylanMeeus"
-    twitter = "https://twitter.com/DylanMeeus"
-    linkedin = "https://www.linkedin.com/in/dylanmeeus"
+    github = "DylanMeeus"
+    twitter = "DylanMeeus"
+    linkedin = "dylanmeeus"
     gravatar = "meeusdylan@protonmail.com"

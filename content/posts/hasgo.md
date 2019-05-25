@@ -1,10 +1,12 @@
 ---
 title: "Hasgo: how does it work?"
 date: 2019-05-25T21:29:58+02:00
-draft: true
+draft: false 
 ---
 
-Hasgo is a code generator that can be used to generate functions that work on slices.
+## What is Hasgo?
+
+[Hasgo](https://www.github.com/DylanMeeus/hasgo") is a code generator that can be used to generate functions that work on slices.
 We don't have generics in Go, which I think is a good thing, but we can generate code with `go:generate` to work on different types.
 
 Hasgo does just this, we write functions and then say for which types we want to generate these functions.
@@ -27,6 +29,19 @@ type person struct {
     age       int
 }
 ```
+
+When the functions are generated, we can write code like this:
+```go
+func magic() {
+	result := IntRange(-10,10).
+		Abs().
+		Map(func(i int64)int64{return i*i}).
+		Filter(func(i int64)bool {return i % 2 == 0}).
+		Sum()
+```
+
+This is enough of an idea of what it does to follow along, but if you're interested in what else it
+can do, check it out on [github](https://www.github.com/DylanMeeus/hasgo).
 
 ## How does it work?
 
