@@ -17,7 +17,7 @@ For our Ints, the generation looks like this:
 type Ints []int64
 ```
 
-This let's the generator know that our slice is called `Ints` but that the underlying type is `int64`. We could also have done this for
+This lets the generator know that our slice is called `Ints` but that the underlying type is `int64`. We could also have done this for
 custom structs (and specify which package the generated code should belong to):
 
 ```go
@@ -71,10 +71,10 @@ func (s persons) Length() int {
 }
 ```
 
-### A generator power the generator
+### A generator to power the generator
 
 Hasgo actually has a first generator that just reads all files in the `/functions` directory and turns them into a `map[string]string`.
-This is where most of the 'magic' happens. This generator only needs to be run by people working on Hasgo and not by people using the library.
+This is where most of the 'magic' happens. This generator only needs to be ran by people working on Hasgo and not by people using the library.
 
 ```go
 var packageTemplate = template.Must(template.New("").
@@ -102,7 +102,7 @@ var domainTemplate = template.Must(template.New("").
 This is not my favourite piece of code in Hasgo, it's somewhat of a necessary evil.
 There's a bit more to this code (albeit not much), which you can [view here](https://github.com/DylanMeeus/hasgo/blob/master/generator.go).
 
-this step results in a `template.go` file which gets compiled and is accessible for our main generator in `hasgo.go`.
+This step results in a `template.go` file which gets compiled and is accessible for our main generator in `hasgo.go`.
 
 It looks somewhat like this:
 
