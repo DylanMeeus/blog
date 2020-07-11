@@ -14,3 +14,6 @@ pygmentsstyle = "monokai"
     twitter = "DylanMeeus"
     linkedin = "dylanmeeus"
     gravatar = "meeusdylan@protonmail.com"
+
+[params]
+    mainSections = ["posts", "español"]
