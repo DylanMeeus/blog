@@ -2,11 +2,18 @@ import os
 
 if __name__ == '__main__':
     blogloc = os.environ["GHBLOG"]
+    currentloc = os.curdir
     os.system("hugo")
     os.system("sudo rm -rf " + blogloc + "*")
     os.system("sudo cp -r public/* " + blogloc)
-    os.system("cd " + os.environ["GHBLOG"])
+
+    # nav to blog
+    os.chdir(blogloc)
+
     os.system("git add .")
     os.system("git commit -m \"publish blog\"")
     os.system("git push")
-    os.system("cd -")
+
+    # back to previous
+    os.chdir(currentloc)
+
