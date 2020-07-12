@@ -5,6 +5,7 @@ theme = "hyde-hyde"
 enableemoji = true
 pygmentsCodeFences = true
 pygmentsstyle = "monokai"
+googleAnalytics = "UA-172416417-1"
 
 [[menu.menu]]
     name = "Dylan Meeus"
