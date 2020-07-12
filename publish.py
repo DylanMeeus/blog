@@ -2,6 +2,10 @@ import os
 
 if __name__ == '__main__':
     blogloc = os.environ["GHBLOG"]
+    if blogloc == "":
+        print("invalid blog location")
+        os.exit(1)
+
     currentloc = os.curdir
     os.system("hugo")
     os.system("sudo rm -rf " + blogloc + "*")
