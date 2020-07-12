@@ -17,4 +17,4 @@ googleAnalytics = "UA-172416417-1"
     gravatar = "meeusdylan@protonmail.com"
 
 [params]
-    mainSections = ["posts", "español"]
+    mainSections = ["posts", "spanish"]

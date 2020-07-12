@@ -1,13 +1,12 @@
 ---
+draft: false
 title: "Bienvenido a mi blog!"
 date: 2020-07-12T21:14:03+02:00
 lastmod: 2020-07-12T21:14:03+02:00
 tags : [ "aboutme", "español"]
 categories : [ "español" ]
-layout: post
-type:  "post"
+type:  "posts"
 highlight: true 
-draft: false
 ---
 
 # Bienvenido a mi blog!
