@@ -1,6 +1,7 @@
 import os
 
 if __name__ == '__main__':
+    os.system("hugo")
     os.system("sudo rm -rf " + os.environ["GHBLOG"] + "*")
     os.system("sudo cp -r public/* " + os.environ["GHBLOG"])
     os.system("cd " + os.environ["GHBLOG"])
