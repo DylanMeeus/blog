@@ -41,7 +41,7 @@ opinión sobre el ultimo pelicula de star wars, ...
 Como he escribo, estoy estudiante de español en el CLT (Centro de idiomas vivas de la universidad de
 Lovaina). No puede aprendar un idioma sin usarlo - y usarlo es
 dificil en tiempo de corona. No puedo venir a mis clases de español y tampoco puedo viajar a Mexico.
-Mi razón para estudiar español es que mi esposa era de Mexico, y su familia no entiende el inglés.
+Mi razón para estudiar español es que mi esposa es mexicana, y su familia no entiende el inglés.
 
 Aprender un idioma tiene varias ventajas - un ventaja muy personal es que queiro platicar con mi
 suegra. Pero también abre un nuevo mundo para descubrir - un mondo de literatura, musica, historia y
@@ -59,5 +59,4 @@ e'`. ❤ VIM.
 ## Errores!
 
 Mira, estoy estudiante de español, no puedo escribir perfectamente. Sin duda hay varias errores en
-mis blogs. Si te quieres, estara agradecida si me contactas con twitter, o si me envias un correo. (meeusdylan arroba
-protonmail.com) con todos mis errores y lo arreglaré - es lo mejor manera para aprender. 😄 
+mis blogs. Si te quieres, estara agradecida si me contactas con twitter con todos mis errores y lo arreglaré - es lo mejor manera para aprender. 😄 
