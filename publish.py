@@ -6,4 +6,5 @@ if __name__ == '__main__':
     os.system("cd " + os.environ["GHBLOG"])
     os.system("git add .")
     os.system("git commit -m \"publish blog\"")
+    os.system("git push")
     os.system("cd -")
