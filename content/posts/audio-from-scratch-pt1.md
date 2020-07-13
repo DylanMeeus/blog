@@ -1,12 +1,12 @@
 ---
-draft: false 
 title: "Audio From Scratch: Part 1, generating sounds"
 date: 2020-07-13T18:43:21+02:00
 lastmod: 2020-07-13T18:43:21+02:00
-tags : [ "posts" ]
+tags : [ "audio", "go" ]
 categories : [ "posts" ]
 type:  "posts"
 highlight: true
+draft: false 
 ---
 
 # Audio from scratch: generating sound
