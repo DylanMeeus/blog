@@ -255,5 +255,5 @@ Now that we have this library, the next blogpost can dive into how we can use th
 
 -------
 
-If you enjoyed this and want to know when I write new posts, consider [folling me on
-twitter](https://twitter.com/DylanMeeus)
+If you enjoyed this and want to know when I write new posts, consider [following me on
+twitter](https://twitter.com/DylanMeeus).
