@@ -1,17 +1,16 @@
 ---
-title: "Audio From Scratch Pt2"
+title: "Audio From Scratch Part2: Anatomy of a wave (file)"
 date: 2020-07-13T19:15:32+02:00
 lastmod: 2020-07-13T19:15:32+02:00
 tags : [ "audio", "go" ]
 categories : [ "posts" ]
 type:  "posts"
 highlight: false
-draft: true
+draft: false
 ---
 
-# Audio from scratch: Part2, anatomy of a wave (file).
 
-In our [last post](dylanmeeus.github.io/posts/audio-from-scratch-pt1) we have looked at how we can
+In our [last post](https://dylanmeeus.github.io/posts/audio-from-scratch-pt1) we have looked at how we can
 create a simple binary sound file. By creating a sine wave with exponential decay, we can get the
 effect of a single note playing.
 
@@ -20,7 +19,12 @@ encounter files that are a bit more complex. One of the common formats to find a
 file format, normally denoted with the extension `.wav` or `.wave`. 
 
 In this post we will learn how to extract information from this file, and how to write our own audio
-data to a wave file. 
+data to a wave file. This will form a base for future posts in which we can start manipulating this
+audio data.
+
+As usual, all code can be found on [GitHub](https://www.github.com/DylanMeeus/GoAudio), albeit in a
+separate library this time. If you want to know how to manipulate the audio itself rather than
+dealing with writing the files, the next blog post will do just that.
 
 ## What's in a wave? 
 
@@ -87,3 +91,169 @@ The first field is the `Subchunk2ID`, this should contain the value `data`. And 
 samples.
 
 ![](/audio/WaveData.png)
+
+
+# The code
+
+## Wave Reader
+
+The key parts of the code for reading and writing WAVE files are all about how to transform our bits
+into actual data. We will either have to transform data to floats or to ints depending on the chunk
+field. 
+
+For writing a 4 byte piece to int we can use the following code:
+
+```go
+// turn a 32-bit byte array into an int
+func bits32ToInt(b []byte) int {
+	if len(b) != 4 {
+		panic("Expected size 4!")
+	}
+	var payload uint32
+	buf := bytes.NewReader(b)
+	err := binary.Read(buf, binary.LittleEndian, &payload)
+	if err != nil {
+		panic(err)
+	}
+	return int(payload) // easier to work with ints
+}
+```
+
+Next we can use this for floats as well.
+
+
+```go
+func bitsToFloat(b []byte) float64 {
+	var bits uint64
+	switch len(b) {
+	case 2:
+		bits = uint64(binary.LittleEndian.Uint16(b))
+	case 4:
+		bits = uint64(binary.LittleEndian.Uint32(b))
+	case 8:
+		bits = binary.LittleEndian.Uint64(b)
+	default:
+		panic("Can't parse to float..")
+	}
+	float := math.Float64frombits(bits)
+	return float
+}
+```
+
+Using these functions we can then combine those into an actual reader.
+
+```go
+func readHeader(b []byte) WaveHeader {
+	hdr := WaveHeader{}
+	chunkID := b[0:4]
+	hdr.ChunkID = b[0:4]
+	if string(hdr.ChunkID) != "RIFF" {
+                // Validation of the header file
+		panic("Invalid file")
+	}
+
+	chunkSize := b[4:8]
+	var size uint32
+	buf := bytes.NewReader(chunkSize)
+	err := binary.Read(buf, binary.LittleEndian, &size)
+	if err != nil {
+		panic(err)
+	}
+	hdr.ChunkSize = int(size) // easier to work with ints
+
+	format := b[8:12]
+	if string(format) != "WAVE" {
+		panic("Format should be WAVE")
+	}
+	hdr.Format = string(format)
+	return hdr
+}
+```
+
+Here we can see how we check for both the `RIFF` and `WAVE` content in the header to make sure that
+these are present in the correct shape.
+
+And perhaps more crucially, we need to read the raw audio data.
+
+```go
+// Should we do n-channel separation at this point?
+func parseRawData(wfmt WaveFmt, rawdata []byte) []Sample {
+	bytesSampleSize := wfmt.BitsPerSample / 8
+	// TODO: sanity-check that this is a power of 2? I think only those sample sizes are
+	// possible
+
+	samples := []Sample{}
+	// read the chunks
+	for i := 0; i < len(rawdata); i += bytesSampleSize {
+		rawSample := rawdata[i : i+bytesSampleSize]
+		sample := bitsToFloat(rawSample)
+		samples = append(samples, Sample(sample))
+	}
+
+	return samples
+}
+```
+
+
+All chunks follow a similar pattern, and can all be found on
+[GitHub](https://github.com/DylanMeeus/GoAudio)
+
+
+## Writer
+
+For writing, the key functions for reading are just reversed. We take an int or float and turn this
+into a byte slice.
+
+
+For writing our int32 to bytes: 
+```go
+func int32ToBytes(i int) []byte {
+	b := make([]byte, 4)
+	in := uint32(i)
+	binary.LittleEndian.PutUint32(b, in)
+	return b
+}
+```
+
+And similarly we could write float64s:
+
+```go
+func floatToBytes(f float64, nBytes int) []byte {
+	bits := math.Float64bits(f)
+	bs := make([]byte, 8)
+	binary.LittleEndian.PutUint64(bs, bits)
+	// trim padding
+	switch nBytes {
+	case 2:
+		return bs[:2]
+	case 4:
+		return bs[:4]
+	}
+	return bs
+}
+```
+
+The most crucial part here is writing the raw audio samples, with these helper functions this would
+look like:
+
+```go
+// Turn the samples into raw data...
+func samplesToRawData(samples []Sample, props WaveFmt) []byte {
+	raw := []byte{}
+	for _, s := range samples {
+		bits := floatToBytes(float64(s), props.BitsPerSample/8)
+		raw = append(raw, bits...)
+	}
+	return raw
+}
+```
+
+## What's next?
+
+Now that we have this library, the next blogpost can dive into how we can use this to manipulate
+.wave sound files.
+
+-------
+
+If you enjoyed this and want to know when I write new posts, consider [folling me on
+twitter](https://twitter.com/DylanMeeus)
