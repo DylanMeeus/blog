@@ -1,5 +1,5 @@
 ---
-title: "Audio From Scratch Part2: Anatomy of a wave (file)"
+title: "Audio From Scratch: Part2, Anatomy of a wave (file)"
 date: 2020-07-13T19:15:32+02:00
 lastmod: 2020-07-13T19:15:32+02:00
 tags : [ "audio", "go" ]
