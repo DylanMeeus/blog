@@ -6,7 +6,7 @@ tags : [ "audio", "go" ]
 categories : [ "posts" ]
 type:  "posts"
 highlight: false
-draft: true
+draft: false
 ---
 
 In the [previous post](https://dylanmeeus.github.io/posts/audio-from-scratch-pt2/) we have written code to read and write WAVE files. 
@@ -91,12 +91,28 @@ this factor to get a new sample. At the end, we return our new samples and write
 file. The actual writing of these samples to a wave file is again taken care of by our
 [GoAudio library](https://github.com/DylanMeeus/GoAudio). 
 
-# Testing the code
+# Running the code
 
-We are now ready to test the code, we can pass an input file, name an output file, and a scale
+We are now ready to run the code, we can pass an input file, name an output file, and a scale
 factor to change the audio, for example to double the amplitudes of a sound file we would use the
 following command:
 
 ```
 go run main.go -i sound.wav -o out.wav -a 2
 ```
+
+Which results in this: 
+
+[original](/audio/maybe-next-time.wav)
+[doubled](/audio/double.wav)
+
+This is quite faint, so here is the original source multiplied by 5:
+
+[x5](/audio/five.wav)
+
+Distortion also kicked in here. :-) 
+
+-------
+
+If you liked this and want to know when I write new posts, the best way to keep up to date is by [following me on
+twitter](https://twitter.com/DylanMeeus). ;-)
