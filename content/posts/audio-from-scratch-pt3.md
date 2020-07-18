@@ -29,7 +29,7 @@ The program to change the amplitude will require three inputs:
 
 For parsing these arguments we will use the build-in `flags` package. 
 
-```
+```go
 var (
 	input  = flag.String("i", "", "input file")
 	output = flag.String("o", "", "output file")
@@ -40,7 +40,7 @@ var (
 
 Next we want to parse these values, and read the audio data from the input file. 
 
-```
+```go
 func main() {
 	flag.Parse()
 	infile := *input
@@ -62,7 +62,7 @@ amplitude we have to manipulate these values.
 
 We  can fill out the main method like so: 
 
-```
+```go
 	scaledSamples := changeAmplitude(wave.Samples, scale)
 	if err := pkg.WriteSamples(scaledSamples, wave.WaveFmt, outfile); err != nil {
 		panic(err)
@@ -77,7 +77,7 @@ factor, and returns us new samples.
 
 As mentioned, we can just alter the samples themselves to change the amplitudes. 
 
-```
+```go
 func changeAmplitude(samples []pkg.Sample, scalefactor float64) []pkg.Sample {
 	for i, s := range samples {
 		samples[i] = pkg.Sample(float64(s) * scalefactor)
