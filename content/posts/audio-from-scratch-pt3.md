@@ -1,5 +1,5 @@
 ---
-title: "Audio From Scratch: Part3, amplitude changes"
+title: "Audio From Scratch: Part3, changing the amplitude"
 date: 2020-07-18T19:15:32+02:00
 lastmod: 2020-07-18T19:15:32+02:00
 tags : [ "audio", "go" ]
