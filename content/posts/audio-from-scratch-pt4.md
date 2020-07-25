@@ -1,5 +1,5 @@
 ---
-title: "Audio From Scratch With Go: stereo panning"
+title: "Audio From Scratch With Go: Stereo panning"
 date: 2020-07-20T19:15:32+02:00
 lastmod: 2020-07-20T19:15:32+02:00
 tags : [ "audio", "go", "GoAudio" ]

@@ -1,8 +1,8 @@
 ---
-title: "Audio From Scratch: Part3, changing the amplitude"
+title: "Audio From Scratch With Go: Changing the amplitude"
 date: 2020-07-18T19:15:32+02:00
 lastmod: 2020-07-18T19:15:32+02:00
-tags : [ "audio", "go" ]
+tags : [ "audio", "go", "GoAudio" ]
 categories : [ "posts" ]
 type:  "posts"
 highlight: false

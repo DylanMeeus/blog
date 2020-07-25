@@ -1,8 +1,8 @@
 ---
-title: "Audio From Scratch: Part 1, generating sounds"
+title: "Audio From Scratch With Go: Generating first sounds"
 date: 2020-07-13T18:43:21+02:00
 lastmod: 2020-07-13T18:43:21+02:00
-tags : [ "audio", "go" ]
+tags : [ "audio", "go", "GoAudio"  ]
 categories : [ "posts" ]
 type:  "posts"
 highlight: true
