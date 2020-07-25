@@ -11,7 +11,7 @@ draft: false
 
 In the [previous post](https://dylanmeeus.github.io/posts/audio-from-scratch-pt3/) we have written code to change the amplitude of wave files. 
 
-Now we'll take a look at how we can turn a mono wave file into a stereo wave file with an optional
+Now we'll take a look at how we can turn a mono wave file into a stereo wave file with optional
 panning, and explore how this is represented internally by the WAVE file format.
 
 
