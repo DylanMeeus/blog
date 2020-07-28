@@ -1,12 +1,12 @@
 ---
 title: "Audio From Scratch With Go: Breakpoints"
-date: 2020-07-26T20:31:44+02:00
-lastmod: 2020-07-26T20:31:44+02:00
+date: 2020-07-28T20:31:44+02:00
+lastmod: 2020-07-28T20:31:44+02:00
 tags : [ "audio", "go", "GoAudio" ]
 categories : [ "posts" ]
 type:  "posts"
 highlight: false
-draft: true 
+draft: false
 ---
 
 # Audio Breakpoints
