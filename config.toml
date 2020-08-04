@@ -18,3 +18,16 @@ googleAnalytics = "UA-172416417-1"
 
 [params]
     mainSections = ["posts", "spanish"]
+
+[markup]
+    defaultMarkdownHandler = "goldmark"
+    [markup.highlight]
+        codeFences = true
+        guessSyntax = false
+        hl_Lines = ""
+        lineNoStart = 1
+        lineNos = true
+        lineNumbersInTable = true
+        noClasses = true
+        style = "monokai"
+        tabWidth =  4 
