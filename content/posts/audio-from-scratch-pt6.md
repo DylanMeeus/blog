@@ -1,13 +1,12 @@
 ---
-title: "Audio From Scratch With Go: Automated Panning"
-date: 2020-08-02T20:05:53+02:00
-lastmod: 2020-08-02T20:05:53+02:00
+title: "Audio From Scratch With Go: Automated Constant-Power Panning"
+date: 2020-08-06T20:05:53+02:00
+lastmod: 2020-08-06T20:05:53+02:00
 tags : [ "audio", "go", "GoAudio" ]
 categories : [ "posts" ]
 type:  "posts"
 highlight: false
-draft: true
-markup: "goldmark"
+draft: false
 ---
 
 In a [previous post](https://dylanmeeus.github.io/posts/audio-from-scratch-pt4) we have looked at
@@ -123,7 +122,7 @@ We can now test this by running:
 go run main.go -i mono.wav -o stereo.wav -b pan.brk
 ```
 
-Which gives us the following result: [pan.wav](/audio/part6/pan.wav)
+Which gives us the following result: [pan.wav](/audio/part6/linearpan.wav)
 
 # Examining the created sound.
 
@@ -194,6 +193,11 @@ func calculateConstantPowerPosition(position float64) panposition {
 When we replace our `simplePan` function with this one, we get the following output:
 
 [Constant Power Pan](/audio/part6/constantpower.wav)
+
+When we open these files in audacity, we can clearly see the difference in the rise and fall of the
+amplitudes in each channel.
+
+![](/audio/part6/audacity.JPG)
 
 Next we'll take a look at how we can extract breakpoints from existing soundfiles (as long as they
 are in .WAV file format), and we'll also discuss the performance of the breakpoint function we are
