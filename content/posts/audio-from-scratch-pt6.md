@@ -111,7 +111,7 @@ When we have our time increment, all that is left is to just iterate over the fr
     }
 
     // write to stereo file 
-    wave.NumChannels = 2
+    wave.WaveFmt.SetChannels(2)
     wav.WriteFrames(out, wave.WaveFmt, *output)
 }
 ```
