@@ -31,3 +31,6 @@ googleAnalytics = "UA-172416417-1"
         noClasses = true
         style = "monokai"
         tabWidth =  4 
+
+[Social]
+    twitter = "DylanMeeus"

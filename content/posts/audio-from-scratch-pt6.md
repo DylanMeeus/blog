@@ -7,6 +7,7 @@ categories : [ "posts" ]
 type:  "posts"
 highlight: false
 draft: false
+images: ["/audio/part6/constantpower.JPG"]
 ---
 
 In a [previous post](https://dylanmeeus.github.io/posts/audio-from-scratch-pt4) we have looked at
@@ -212,4 +213,4 @@ using.
 ------
 
 If you liked this and want to know when I write new posts, the best way to keep up to date is by [following me on
-twitter](https://twitter.com/DylanMeeus). ;-)
+twitter](https://twitter.com/DylanMeeus).
