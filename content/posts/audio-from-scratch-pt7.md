@@ -6,7 +6,7 @@ tags : [ "audio", "go", "GoAudio" ]
 categories : [ "posts" ]
 type:  "posts"
 highlight: false
-draft: true
+draft: false
 images: ["/audio/part6/constantpower.JPG"]
 ---
 
