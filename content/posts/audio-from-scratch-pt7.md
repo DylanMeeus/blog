@@ -34,6 +34,9 @@ our linear interpolation that happens when looking up the value of a breakpoint 
 A small extention to our current breakpoint code is that we need to be able to 'batch' our frames
 into slices of a given time. 
 
+If you want to get to the code, everything can be found on
+[GitHub](https://github.com/DylanMeeus/GoAudio/blob/master/cmd/extractbrk/main.go).
+
 # Batching frames
 
 The BatchFrames function will take a `Wave` and `seconds float64` as input, as this gives us enough
@@ -152,7 +155,8 @@ func maxAmp(ss []wav.Frame) float64 {
 # Resources
 
 - [GoAudio](https://github.com/DylanMeeus/GoAudio)
-- [Breakpoint code](https://github.com/DylanMeeus/GoAudio/blob/master/breakpoint/breakpoint.go)
+- [Breakpoint extraction program](https://github.com/DylanMeeus/GoAudio/blob/master/cmd/extractbrk/main.go)
+- [Batching Code](https://github.com/DylanMeeus/GoAudio/blob/master/wave/utils.go#L6)
 
 ------
 
