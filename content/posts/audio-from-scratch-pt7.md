@@ -102,7 +102,7 @@ func main() {
 	wave, _ := wav.ReadWaveFile(infile)
 
 	if wave.NumChannels != 1 {
-		//panic("Only mono soundfiles are supported for now")
+		panic("Only mono soundfiles are supported for now")
 	}
 
         frameDuration := 15.0 // 15 ms
