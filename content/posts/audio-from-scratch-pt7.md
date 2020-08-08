@@ -7,7 +7,7 @@ categories : [ "posts" ]
 type:  "posts"
 highlight: false
 draft: false
-images: ["/audio/part6/constantpower.JPG"]
+images: ["/audio/part7/audacityplot.png"]
 ---
 
 So far everything we've done with breakpoints involved us creating a breakpoint file and using this
@@ -31,25 +31,26 @@ result in a list that is equal to our frame data. We'll use less space by just t
 a certain interval, e.g every 10ms, and take advantage of
 our linear interpolation that happens when looking up the value of a breakpoint at a certain time. 
 
-A small extention to our current breakpoint code is that we need to be able to 'batch' our frames
+A small extention to our current breakpoint code is that we need to be able to 'batch' the samples 
 into slices of a given time. 
 
 If you want to get to the code, everything can be found on
 [GitHub](https://github.com/DylanMeeus/GoAudio/blob/master/cmd/extractbrk/main.go).
 
-# Batching frames
+# Batching Samples 
 
-The BatchFrames function will take a `Wave` and `seconds float64` as input, as this gives us enough
+The BatchSamples function will take a `Wave` and `seconds float64` as input, as this gives us enough
 data to batch the frames. Given a certain SampleRate, we know how many Samples per Second we are
-seeing in the file. With this information, we can find the amount of Frames per Seconds. (this holds
-for mono files, for non-mono files we have to adjust for the frames -> samples conversion.)
+seeing in the file. With this information, we can find the amount of Frames per Seconds. Although
+frames per second is only equal to the samples per second for mono files, but adapting for
+multi-channel audio is just a matter of multiplying the SampleSize by the amount of channels.
 
-The SampleSize can thus be expressed as follows: `SampleSize = SampleRate * seconds`
+The SampleSize can thus be expressed as follows: `SampleSize = SampleRate * Channels * seconds`
 
 When we know our sample size, we can split the raw frames into slices of this size.
 
 ```go
-func BatchFrames(data Wave, seconds float64) [][]Frame {
+func BatchSamples(data Wave, seconds float64) [][]Frame {
 	if seconds == 0 {
 		return [][]Frame{
 			data.Frames,
@@ -58,7 +59,7 @@ func BatchFrames(data Wave, seconds float64) [][]Frame {
 
 	samples := data.Frames
 
-	sampleSize := int(float64(data.SampleRate) * float64(seconds))
+	sampleSize := int(float64(data.SampleRate * data.NumChannels) * float64(seconds))
 
 	batches := len(samples) / sampleSize
 	if len(samples)%sampleSize != 0 {
@@ -84,14 +85,14 @@ func BatchFrames(data Wave, seconds float64) [][]Frame {
 
 # Extracting data from batches
 
-Once we can split our frames into batches, we can call `BatchFrames(wave,x)` to get the requested
+Once we can split our frames into batches, we can call `BatchSamples(wave,x)` to get the requested
 batches of a given duration. Then, we can find the max amplitude over all of these and keep
 track of this over all batches.
 
 
 The setup code is the same as usual, where we parse an input file with
 [GoAudio](https://github.com/DylanMeeus/GoAudio). Except that now we'll also send the frames to the
-'BatchFrames' function. (Error handling ignored for brevity)
+'BatchSamples' function. (Error handling ignored for brevity)
 
 
 ```go
@@ -101,17 +102,13 @@ func main() {
 	outfile := *output
 	wave, _ := wav.ReadWaveFile(infile)
 
-	if wave.NumChannels != 1 {
-		panic("Only mono soundfiles are supported for now")
-	}
-
         frameDuration := 15.0 // 15 ms
 	ticks := frameDuration / 1000.0
-	batches := wav.BatchFrames(wave, ticks)
+	batches := wav.BatchSamples(wave, ticks)
         ...
 ```
 
-After doing this, we'll have our frames batched in 15 ms slices. We'll continue by iterating over
+After doing this, we'll have our samples batched in 15 ms slices. We'll continue by iterating over
 them and collecting the max amplitude found in each. As we'll need to write this to an output file
 in the end, we'll store this in a StringBuilder for now.
 
@@ -151,6 +148,20 @@ func maxAmp(ss []wav.Frame) float64 {
 	return float64(max)
 }
 ```
+
+# Running the breakpoint extractor
+
+When we run this program `go run main.go -i input.wav -w 15 -o output.brk` we can generate a
+breakpoint file. I've created a sample waveform (something I'll write a future blogpost about) with
+variable amplitude. You can listen to it [here](/audio/part7/input.wav).
+
+The extracted breakpoint file can be seen [here](/audio/part7/output.brk).
+
+Using audacity and your favourite plotting tool you can compare the waveform with what the
+breakpoint extractor generated. 
+
+![Audacity](/audio/part7/audacityplot.png)
+![Breakpoint plot](/audio/part7/breakpointplot.png)
 
 # Resources
 
