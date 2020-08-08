@@ -1,5 +1,5 @@
 ---
-title: "Audio From Scratch With Go: Extracting Breakpoints from songs"
+title: "Audio From Scratch With Go: Extracting Breakpoints"
 date: 2020-08-08T01:01:37+02:00
 lastmod: 2020-08-08T01:01:37+02:00
 tags : [ "audio", "go", "GoAudio" ]
