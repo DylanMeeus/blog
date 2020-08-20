@@ -8,7 +8,7 @@ type:  "posts"
 highlight: false
 draft: false
 images: ["/audio/part8/waves.png"]
-draft: true
+draft: false
 ---
 
 In the [previous posts](https://dylanmeeus.github.io/tags/goaudio/) we first looked at how we can
@@ -155,7 +155,7 @@ The adjustments to our curphase is to keep it in the bounds (Although depending 
 implementation of the `sin` function this might not be necessary, I kept it here as a guard but I'm
 pretty sure it's not necessary in Go).
 
-# Calculating waveforms
+# Waveforms functions
 
 The only part left to implement is the actual generation of the different shapes of waves. This is
 what happens in the call `val := o.tickfunc(o.curphase)`. By using a generic function call, we can
@@ -187,7 +187,7 @@ func squareCalc(phase float64) float64 {
 The triangle wave is the first one that looks more complex, with the sawtooth waves being related 
 to it (you can visually see a sawtooth is being part of the triangle with a sharp cut-off.
 
-```
+```go
 func triangleCalc(phase float64) float64 {
 	val := 2.0*(phase*(1.0/tau)) - 1.0
 	if val < 0.0 {
@@ -207,3 +207,112 @@ func downSawtoothCalc(phase float64) float64 {
 	return val
 }
 ```
+
+# Making waves
+
+With our oscillator set up, we can finally start using it. All the code that follows is contained in
+this [GoAudio
+example](https://github.com/DylanMeeus/GoAudio/blob/master/examples/oscillator/main.go). The setup
+of this example is similar to what we've seen in the previous posts where we deal with parsing
+breakpoints. To keep things simple, this entire setup happens in our main routine.
+
+```go
+func main() {
+	flag.Parse()
+	fmt.Println("usage: go run main -d {dur} -s {shape} -a {amps} -f {freqs} -o {output}")
+	if output == nil {
+		panic("please provide an output file")
+	}
+
+	wfmt := wave.NewWaveFmt(1, 1, 44100, 16, nil)
+	amps, err := ioutil.ReadFile(*amppoints)
+	if err != nil {
+		panic(err)
+	}
+	ampPoints, err := breakpoint.ParseBreakpoints(bytes.NewReader(amps))
+	if err != nil {
+		panic(err)
+	}
+	ampStream, err := breakpoint.NewBreakpointStream(ampPoints, wfmt.SampleRate)
+
+	freqs, err := ioutil.ReadFile(*freqpoints)
+	if err != nil {
+		panic(err)
+	}
+	freqPoints, err := breakpoint.ParseBreakpoints(bytes.NewReader(freqs))
+	if err != nil {
+		panic(err)
+	}
+	freqStream, err := breakpoint.NewBreakpointStream(freqPoints, wfmt.SampleRate)
+	if err != nil {
+		panic(err)
+	}
+	// create wave file sampled at 44.1Khz w/ 16-bit frames
+
+	frames := generate(*duration, stringToShape[*shape], ampStream, freqStream, wfmt)
+	wave.WriteFrames(frames, wfmt, *output)
+	fmt.Println("done")
+}
+```
+
+Notice that we also print the usage, we expect a duration, a shape, amplitude breakpoints, frequency
+breakpoints and finally an output file. The 'heavy lifting' happens in the call to the `generate`
+function. Here we pass along the duration, a `Shape` instance derived from the string entered on the
+CLI, our breakpoints and finally also a WaveFmt. Remember that the WaveFmt struct contains the
+metadata for the `.wave` files we are generating. In this case, the statement `wave.NewWaveFmt(1, 1,
+44100, 16, nil)` means it's a standard PCM wave-file, with 1 channel (mono) playing at 44.1Khz,
+where the data consists of 16-bit floats. You can play with these values to see how the result
+changes. (Well, the channels are a bit trickier to change as we learned in [this
+post](https://dylanmeeus.github.io/posts/audio-from-scratch-pt4/)).
+
+Finally in the generate function, we need to calculate the amount of samples (= frames for mono) we
+need to generate. Then we'll call the `Tick` function of our oscillator as well of our breakpoint
+stream to continously retrieve the next value. 
+
+```go
+func generate(dur int, shape synth.Shape, ampStream, freqStream *breakpoint.BreakpointStream, wfmt wave.WaveFmt) []wave.Frame {
+	reqFrames := dur * wfmt.SampleRate
+	frames := make([]wave.Frame, reqFrames)
+	osc, err := synth.NewOscillator(wfmt.SampleRate, shape)
+	if err != nil {
+		panic(err)
+	}
+
+	for i := range frames {
+		amp := ampStream.Tick()
+		freq := freqStream.Tick()
+		frames[i] = wave.Frame(amp * osc.Tick(freq))
+	}
+
+	return frames
+}
+```
+
+And there we go, we now have all code in place for generating basic waveforms. When examining them
+in audacity we get the result shown at the beginning of this post. 
+
+# Improvements
+
+With this we can generate basic "clean" audio signals, this could be handy for testing purposes but
+as far as I know it pretty much ends there. (Most software synths will also let you play around with
+these type of waves, but you'll tweak them to something more usable).
+
+You might have some concerns with this code though, the first being the performance issue. An
+oscillator is by definition something repetitive, yet we are constantly calculating the 'next
+phase'. Is this strictly necessary? No, we can actually store the values we expect to see in a
+'lookup  table'. (As a complete side-note here, this always reminds me of how in WW2 they used
+'firing tables' to lookup ballistic trajectories. More on that
+[here](http://www.cs.kent.edu/~rothstei/10051/HistoryPt3.htm))
+
+In the next post we'll take a look at using lookup tables, and we'll also start thinking about
+harmonics to represent sound in a more realistic way.
+
+# Resources
+
+- [GoAudio](https://github.com/DylanMeeus/GoAudio)
+- [Oscillator examples](https://github.com/DylanMeeus/GoAudio/blob/master/examples/oscillator/main.go)
+
+------
+
+If you liked this and want to know when I write new posts, the best way to keep up to date is by [following me on
+twitter](https://twitter.com/DylanMeeus).
