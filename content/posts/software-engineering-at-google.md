@@ -8,7 +8,7 @@ type:  "posts"
 highlight: false
 draft: false
 images: ["/se-at-google/cover.jpg"]
-draft: true
+draft: false
 ---
 
 If there was one book this year that it was hard to avoid hearing about, it was "Software
