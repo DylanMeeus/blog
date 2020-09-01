@@ -7,9 +7,9 @@ categories : [ "posts" ]
 type:  "posts"
 highlight: false
 draft: false
-images: ["/audio/part8/waves.png"]
+images: ["/audio/part9/halfsampling.png"]
 draft: false
-draft: true
+draft: false
 ---
 
 In the [previous post](https://dylanmeeus.github.io/posts/audio-from-scratch-pt8) the aim was to
@@ -33,13 +33,24 @@ Fundamentally there are two parts to this problem, first we need to figure out h
 waveform in a table, and next we need to figure out how we can read this data from the table at the
 correct frequency.
 
--- Try to animate a wave being chunked?
 
 For storing the waveform, we will want to store `X` data points along the wave. These data points
 are the samples that we are taking. In an analog signal we have a continous wave, when we convert it
 to a digital signal it becomes discrete, but for a large enough `X` it becomes indistinguishable
 from the real signal. (This equivalence will help us down the road as well, when we start reasoning
 about manipulation of this signal).
+
+In the figure below we can see how the sampling rate impacts how many snapshots we take of the
+signal. 
+
+![Sampled sine wave](/audio/part9/sampling.png)
+
+If we were to take half the sampling rate, we'd only get 4 data points of our wave.
+There is actualy a limit to the sample rate that we can use for a given signal.
+This is known as the [Nyquist Limit](https://en.wikipedia.org/wiki/Nyquist_frequency), and for now
+we will just aknowledge this exists and move on, content for another post. ;-)
+
+![Sampled at half the rate](/audio/part9/halfsampling.png)
 
 To figure out the spacing between each point we can use `step = (2*PI)/X`. Once we have this, we
 loop from `0 -> X` and generate the expected value. For the sine wave, this then becomes:
