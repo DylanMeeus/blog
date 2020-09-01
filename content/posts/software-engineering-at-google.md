@@ -3,7 +3,7 @@ title: "Software Engineering at Google"
 date: 2020-08-25T19:57:06+02:00
 lastmod: 2020-08-25T19:57:06+02:00
 tags : [ "books" ]
-categories : [ "posts" ]
+categories : [ "books" ]
 type:  "posts"
 highlight: false
 draft: false
