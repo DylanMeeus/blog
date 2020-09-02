@@ -1,5 +1,5 @@
 ---
-title: "Audio From Scratch: Waveform tables"
+title: "Audio From Scratch With Go: Waveform tables"
 date: 2020-08-31T21:01:02+02:00
 lastmod: 2020-08-31T21:01:02+02:00
 tags : [ "audio", "go", "GoAudio" ]
