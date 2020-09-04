@@ -4,7 +4,7 @@ date: 2020-08-25T19:57:06+02:00
 lastmod: 2020-08-25T19:57:06+02:00
 tags : [ "books" ]
 categories : [ "books" ]
-type:  "posts"
+type:  "books"
 highlight: false
 draft: false
 images: ["/se-at-google/cover.jpg"]
