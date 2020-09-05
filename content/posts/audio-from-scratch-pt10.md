@@ -32,7 +32,7 @@ gist](https://gist.github.com/DylanMeeus/83f3ae5d628d11533b8fbd47298d8434).
 The Attack, Decay, Sustain and Release envelope is a common type of envelope. Schematically this can
 be represented as below (from wikipedia): 
 
-![Wikipedia schematic of ADSR envelope](/part10/adsrschema.png)
+![Wikipedia schematic of ADSR envelope](/audio/part10/adsrschema.png)
 
 As we apply this envelope to a signal, the signal will change in amplitude depending on which phase
 we are in of the ADSR envelope. In the image it is visible that the amplitude rises during the
