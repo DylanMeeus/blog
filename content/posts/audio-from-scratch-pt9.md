@@ -9,7 +9,6 @@ highlight: false
 draft: false
 images: ["/audio/part9/halfsampling.png"]
 draft: false
-draft: false
 ---
 
 In the [previous post](https://dylanmeeus.github.io/posts/audio-from-scratch-pt8) the aim was to
