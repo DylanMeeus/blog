@@ -8,7 +8,7 @@ type:  "posts"
 highlight: false
 draft: false
 images: ["/audio/part10/adsrschema.png"]
-draft: true
+draft: false
 ---
 
 So far, we have seen how we can generate pure signals such as sine waves, square waves and triangle
