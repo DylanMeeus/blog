@@ -7,7 +7,7 @@ categories : [ "posts" ]
 type:  "posts"
 highlight: false
 draft: false
-images: ["/audio/part10/adsrschema.png"]
+images: ["/audio/part11/prism.jpg"]
 draft: false
 ---
 
