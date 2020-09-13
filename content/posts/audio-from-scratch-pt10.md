@@ -1,5 +1,5 @@
 ---
-title: "Audio From Scratch With Go: ADSR"
+title: "Audio From Scratch With Go: Harmonics"
 date: 2020-09-05T14:01:57+02:00
 lastmod: 2020-09-05T14:01:57+02:00
 tags : [ "audio", "go", "GoAudio" ]
