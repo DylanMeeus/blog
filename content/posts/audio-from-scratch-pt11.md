@@ -1,5 +1,5 @@
 ---
-title: "Audio From Scratch With Go: Fourier Addition"
+title: "Audio From Scratch With Go: Harmonics"
 date: 2020-09-12T13:04:29+02:00
 lastmod: 2020-09-12T13:04:29+02:00
 tags : [ "audio", "go", "GoAudio" ]
