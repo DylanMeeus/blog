@@ -1,5 +1,5 @@
 ---
-title: "Audio From Scratch With Go: Frere Jacques"
+title: "Audio From Scratch With Go: Frère Jacques"
 date: 2020-09-13T16:27:35+02:00
 lastmod: 2020-09-13T16:27:35+02:00
 tags : [ "audio", "go", "GoAudio" ]
@@ -18,13 +18,12 @@ In this post we will actually put that to the test. Click the video to hear the 
 
 {{< vimeo 458251843 >}}
 
-## Frere Jacques
+## Frère Jacques | Brother John
 
-When I was a kid, the first thing I was taught to play was the tune to 'Frere Jacques' on my grandparents' piano (to their dismay,
-also the last thing I actually learned to play until I picked up a guitar 15 years later and played that badly). As such, I thought it'd be fitting to try to code
-this song this time. The notes for playing this are taken from [true-piano-lessons.com](https://www.true-piano-lessons.com/frere-jacques.html
-). The code takes the notes starting in the key of C. (Maybe since it's in Go, I should have started
-in G. Feel free to change it).
+Brother John / Frère Jacques is a popular nursing rhyme, and also one of the few things I was taught
+to play on the piano as a kid. As such, I thought it'd be fitting to try to code this song this time. 
+The notes for playing this are taken from [true-piano-lessons.com](https://www.true-piano-lessons.com/frere-jacques.html). 
+The code takes the notes starting in the key of C. (Maybe since it's in Go, I should have started in G. Feel free to change it).
 
 ## Generating notes
 
