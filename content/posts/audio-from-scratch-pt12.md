@@ -7,14 +7,16 @@ categories : [ "posts" ]
 type:  "posts"
 highlight: false
 draft: false
-images: ["/audio/part10/adsrschema.png"]
-draft: true
+images: ["/audio/part12/audacity.png"]
+draft: false
 ---
 
 In the [last post](https://dylanmeeus.github.io/posts/audio-from-scratch-pt11) I ended by saying we
 would be able to use [GoAudio](https://github.com/DylanMeeus/GoAudio) to generate some simple tunes.
-In this post we will actually put that to the test. You can listen to the tune
-[here](/audio/part12/frerejacques.wav).
+In this post we will actually put that to the test. Click the video to hear the end result :)
+
+
+{{< vimeo 458251843 >}}
 
 ## Frere Jacques
 
@@ -176,7 +178,6 @@ func main() {
 	cgcdur := 0.5
 
 	// notes: https://www.true-piano-lessons.com/frere-jacques.html
-
 	output := []wave.Frame{}
 	// frere jacues
 	output = append(output, play(osc, "C5", cdecdur, nm)...)
@@ -222,8 +223,17 @@ func main() {
 
 	wfmt := wave.NewWaveFmt(1, 1, sr, 16, nil)
 	wave.WriteFrames(output, wfmt, "frerejacques.wav")
-	fmt.Println("done")
 }
 ```
 
-[The result](/audio/part12/frerejacques.wav)
+[Download the result](/audio/part12/frerejacques.wav), or view the video at the beginning of this
+post.
+
+Or, viewed in audacity
+
+![](/audio/part12/audacity.png)
+
+------
+
+If you liked this and want to know when I write new posts, the best way to keep up to date is by [following me on
+twitter](https://twitter.com/DylanMeeus).
