@@ -1,5 +1,5 @@
 ---
-title: "Audio From Scratch With Go: Note to frequency"
+title: "Audio From Scratch With Go: Notes to Sound"
 date: 2020-10-05T21:38:02+02:00
 lastmod: 2020-10-05T21:38:02+02:00
 tags : [ "audio", "go", "GoAudio" ]
@@ -8,7 +8,7 @@ type:  "posts"
 highlight: false
 draft: false
 images: ["/audio/part12/audacity.png"]
-draft: true
+draft: false
 ---
 
 In the [last post](https://dylanmeeus.github.io/posts/audio-from-scratch-pt12/) the tune to 'Brother
@@ -116,4 +116,53 @@ Thus, we add a mapping from note -> integer:
 ```
 
 The sharps are denoted by `#`, and the flats are denoted by `b`. Thus `c# = db = 4`. 
+Now that we have this system in place for the twelve semitones, we can plug it into the above
+formula. This we might assume the code becomes:
 
+```go
+func NoteToFrequency(note string, octave int) float64 {
+	note = strings.ToLower(strings.TrimSpace(note))
+	ni := noteIndex[note]
+	return FR * math.Pow(2, float64(octave-4)+(float64(ni)/12.))
+}
+```
+
+Unfortunately, this will not be correct yet. The problem lies in how this musical scale works, a new
+octave does not start on A, instead an octave starts on C and ends on B, hence the common spectrum is covered by `C0..B8`. 
+I think this is just a historical curiosity of the musical scale commonly used in western music, but
+I don't know enough about the history to really know. 
+
+What this means for us is that we have to adapt the octave slightly depending on which note we pass
+to the function. Concretely, for anything below C we will drop the octave by 1. Such that `A,4`
+effectively calculates `A,3`. 
+
+```go
+func NoteToFrequency(note string, octave int) float64 {
+	note = strings.ToLower(strings.TrimSpace(note))
+	ni := noteIndex[note]
+	if ni >= 3 {
+		// correct for octaves starting at C, not A.
+		octave--
+	}
+	FR := 440.
+	return FR * math.Pow(2, float64(octave-4)+(float64(ni)/12.))
+}
+```
+
+## Rewriting Brother Jacob
+
+Now we're essentially ready to rewrite our tune from the [previous
+post](https://dylanmeeus.github.io/posts/audio-from-scratch-pt12), but I've added one more
+convenience function to [GoAudio](https://github.com/DylanMeeus/GoAudio). I thought it'd be handy if
+we could just pass the note+octave as a string, so that we can say `NoteFrequency("B4")` rather than
+`NoteFrequency("B",4)`. It's just a small "quality of life" addition. This convenience function can
+be seen in the [ParseNoteToFrequency function](https://github.com/DylanMeeus/GoAudio/blob/master/synthesizer/synth.go). 
+
+
+
+Check [this gist](https://gist.github.com/DylanMeeus/ee6c3eb4acebedd5682a1e2989ccd0fa) for an example of the updated code.
+
+------
+
+If you liked this and want to know when I write new posts, the best way to keep up to date is by [following me on
+twitter](https://twitter.com/DylanMeeus).
